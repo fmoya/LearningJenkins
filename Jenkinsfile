@@ -1,5 +1,5 @@
 pipeline {
-    agent { docker 'surhive/daemons:base_v1' }
+    agent 'dockerized-agent'
     stages {
         stage('build') {
             steps {

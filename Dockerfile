@@ -25,8 +25,13 @@ RUN chgrp -R jenkins /home/jenkins
 RUN chmod 600 /home/jenkins/.ssh/authorized_keys
 RUN chmod 700 /home/jenkins/.ssh
 
+# Root directory required for Jenkins (master).
+RUN mkdir /home/jenkins/jenkins-slave-agent-root
+RUN chown -R jenkins /home/jenkins/jenkins-slave-agent-root
+
 # Add the jenkins user to sudoers
 RUN echo "jenkins  ALL=(ALL)  ALL" >> etc/sudoers
+
 
 # Expose SSH port and run SSHD
 EXPOSE 22
