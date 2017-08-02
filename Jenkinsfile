@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                prove 't'
+                sh 'prove t'
             }
         }
     }
